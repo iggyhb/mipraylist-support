@@ -1,14 +1,20 @@
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>Redirecting…</title></head>
+<head>
+  <meta charset="utf-8">
+  <title>Facebook login callback</title>
+</head>
 <body>
-<script>
-  (function () {
-    var q = window.location.search || "";
-    var h = window.location.hash || "";
-    window.location.replace("catholicreadingsapp://oauth-callback" + q + h);
-  })();
-</script>
-Redirecting…
+  <p>Redirecting back to Mi PrayList…</p>
+  <p>If nothing happens, <a id="openApp" href="#">tap here</a>.</p>
+  <script>
+    (function () {
+      var q = window.location.search || "";
+      var h = window.location.hash || "";
+      var target = "catholicreadingsapp://oauth-callback" + q + h;
+      document.getElementById("openApp").href = target;
+      setTimeout(function () { window.location.href = target; }, 200);
+    })();
+  </script>
 </body>
 </html>
